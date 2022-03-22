@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+message LogMessage {
+  string message = 1;
+  string level = 2;
+}
+
+
+service LogService {
+  rpc SendLog(LogMessage) returns (LogMessage);
+}

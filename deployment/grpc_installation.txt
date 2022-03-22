@@ -1,0 +1,2 @@
+please change GRPC_SERVER inside configmap to match
+your grpc service from kubectl get svc

@@ -1,0 +1,61 @@
+swagger: '2.0'
+info:
+  description: This is udacity udaconnect
+  version: 1.0.0
+  title: Computer Store API
+  # put the contact info for your development or API team
+  contact:
+    email: beebeewijaya@gmail.com
+
+# tags are used for organizing operations
+tags:
+  - name: developers
+    description: Operations available to regular developers
+
+paths:
+  /api/persons:
+    get:
+      tags:
+        - developers
+      summary: Retrieve all person
+      description: |
+        By passing in the appropriate options, you can search for
+        all orders for computer
+      produces:
+        - application/json
+      responses:
+        200:
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Person'
+        400:
+          description: bad input parameter
+definitions:
+  Person:
+    type: object
+    required:
+      - id
+      - last_name
+      - first_name
+      - company_name
+    properties:
+      id:
+        type: integer
+        example: 1
+      last_name:
+        type: string
+        example: 'Fargo'
+      first_name:
+        type: string
+        example: 'Taco'
+      company_name:
+        type: string
+        example: 'Alpha Omega Upholstery'
+
+# Added by API Auto Mocking Plugin
+host: virtserver.swaggerhub.com
+basePath: /beebeewijaya-tech/computer-store/1.0.0
+schemes:
+  - https

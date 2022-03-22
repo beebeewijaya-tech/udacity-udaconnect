@@ -5,5 +5,10 @@ data:
   DB_NAME: "geoconnections"
   DB_HOST: "postgres"
   DB_PORT: "5432"
+  KAFKA_HOST: "kafka-release-0.kafka-release-headless.default.svc.cluster.local"
+  KAFKA_PORT: "9092"
+  GRPC_SERVER: "10.100.38.99"
+  GRPC_PORT: "50051"
+  PERSON_HOST: "10.104.60.22"
 metadata:
   name: db-env

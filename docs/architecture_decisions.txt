@@ -1,0 +1,18 @@
+// PERSON SERVICE
+PERSON SERVICE is REST API that is responsible to store and retrieve User or Person Information
+
+
+// CONNECTION SERVICE
+CONNECTION SERVICE is REST API that is responsible to fetch the connections of any person w.r.t its geolocations
+
+
+// LOCATION SERVICE
+LOCATION SERVICE is REST API that is responsible to fetch the location
+
+
+// LOGGER_API
+LOGGER_API is use for consuming KAFKA service to showing logs
+
+
+// LOGGER_GRPC
+LOGGER_GRPC this is for GRPC server to be producer of KAFKA logs

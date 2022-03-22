@@ -5,7 +5,7 @@ CREATE TABLE person (
     company_name VARCHAR NOT NULL
 );
 
-
+CREATE EXTENSION postgis;
 CREATE TABLE location (
     id SERIAL PRIMARY KEY,
     person_id INT NOT NULL,
