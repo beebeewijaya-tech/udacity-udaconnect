@@ -1,13 +1,30 @@
+We need to break up the modules rather than using Monolith because there are a lot of traffic recently in couple of service
+Especially in Location Service that being hit simultaneously that the monolith + rest won't be able to hold that much traffic
+
+Actually we can still stay using monolith and rest api, but our cost will be so high because we need to upgrade ram and cpu
+for some service / module only, no need to upgrade everything
+
+By implementing microservices on this, we can achieve the performance and also we're not paying too high for the cost
+
+My approach is each service will run inside docker container so we can be platform-agnostic and can choose the cheapest
+Cloud provider
+
+I will break down the services.
+
 // PERSON SERVICE
 PERSON SERVICE is REST API that is responsible to store and retrieve User or Person Information
+Because this service doesn't has that much traffic we don't really need to use GRPC for this and stay in REST
 
 
 // CONNECTION SERVICE
 CONNECTION SERVICE is REST API that is responsible to fetch the connections of any person w.r.t its geolocations
+Because this service doesn't has that much traffic we don't really need to use GRPC for this and stay in REST
 
 
 // LOCATION SERVICE
-LOCATION SERVICE is REST API that is responsible to fetch the location
+LOCATION SERVICE is GRPC API that is responsible to fetch the location
+this service is really high traffic and will have a huge amount of volume, so need more lightweight version like GRPC
+to be implemented
 
 
 // LOGGER_API
@@ -16,3 +33,5 @@ LOGGER_API is use for consuming KAFKA service to showing logs
 
 // LOGGER_GRPC
 LOGGER_GRPC this is for GRPC server to be producer of KAFKA logs
+
+We want to streaming logs that we produce by our other services and using kafka so the logs will not blocked our system
